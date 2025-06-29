@@ -13,10 +13,16 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Python 3.9
+    - name: Verify repository structure
+      run: |
+        ls -la
+        echo "Contents of requirements.txt:"
+        cat requirements.txt || echo "No requirements.txt found"
+
+    - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: "3.9"
+        python-version: "3.10"
 
     - name: Install dependencies
       run: |
